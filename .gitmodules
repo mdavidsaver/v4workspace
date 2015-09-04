@@ -1,0 +1,9 @@
+[submodule "epics-base"]
+	path = epics-base
+	url = https://github.com/epics-base/epics-base.git
+[submodule "pvAccess"]
+	path = pvAccess
+	url = https://github.com/epics-base/pvAccessCPP.git
+[submodule "pvData"]
+	path = pvData
+	url = https://github.com/epics-base/pvDataCPP.git
