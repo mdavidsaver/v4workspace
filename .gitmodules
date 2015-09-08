@@ -3,10 +3,13 @@
 	url = https://github.com/epics-base/epics-base.git
 [submodule "pvAccess"]
 	path = pvAccess
-	url = https://github.com/epics-base/pvAccessCPP.git
+	url = https://github.com/mdavidsaver/pvAccessCPP.git
+	branch = pva2pva
 [submodule "pvData"]
 	path = pvData
-	url = https://github.com/epics-base/pvDataCPP.git
+	url = https://github.com/mdavidsaver/pvDataCPP.git
+	branch = pva2pva
 [submodule "pvaSrv"]
 	path = pvaSrv
-	url = https://github.com/epics-base/pvaSrv
+	url = https://github.com/mdavidsaver/pvaSrv.git
+	branch = pva2pva
