@@ -7,3 +7,6 @@
 [submodule "pvData"]
 	path = pvData
 	url = https://github.com/epics-base/pvDataCPP.git
+[submodule "pvaSrv"]
+	path = pvaSrv
+	url = https://github.com/epics-base/pvaSrv
