@@ -13,3 +13,6 @@
 	path = pvaSrv
 	url = https://github.com/mdavidsaver/pvaSrv.git
 	branch = pva2pva
+[submodule "pva2pva"]
+	path = pva2pva
+	url = https://github.com/mdavidsaver/pva2pva.git
