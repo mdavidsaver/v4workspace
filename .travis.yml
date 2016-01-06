@@ -1,0 +1,14 @@
+sudo: false
+language: c
+addons:
+  apt:
+    packages:
+    - libreadline6-dev
+    - libncurses5-dev
+    - perl
+install:
+  - make -j2 -C epics-base
+  - make -j2 -C pvData
+  - make -j2 -C pvAccess
+  - make -j2 -C pva2pva
+script: make -C pva2pva runtests
