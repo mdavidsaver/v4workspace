@@ -1,3 +1,5 @@
 EPICS_BASE=$(TOP)/../epics-base
 PVDATA=$(TOP)/../pvData
 PVACCESS=$(TOP)/../pvAccess
+NORMATIVETYPES=$(TOP)/../normativeTypes
+PVACLIENT=$(TOP)/../pvaClient

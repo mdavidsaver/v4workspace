@@ -10,3 +10,12 @@
 [submodule "pvaSrv"]
 	path = pvaSrv
 	url = https://github.com/epics-base/pvaSrv
+[submodule "pvaPy"]
+	path = pvaPy
+	url = https://github.com/mdavidsaver/pvaPy.git
+[submodule "normativeTypes"]
+	path = normativeTypes
+	url = https://github.com/epics-base/normativeTypesCPP.git
+[submodule "pvaClient"]
+	path = pvaClient
+	url = https://github.com/epics-base/pvaClientCPP.git
