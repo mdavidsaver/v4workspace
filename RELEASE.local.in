@@ -1,4 +1,3 @@
-THE_ROOT_DIR=/home/mdavidsaver/work/pv-scratch
 PVACLIENT=$(THE_ROOT_DIR)/pvaClient
 NORMATIVETYPES=$(THE_ROOT_DIR)/normativeTypes
 PVACCESS=$(THE_ROOT_DIR)/pvAccess
