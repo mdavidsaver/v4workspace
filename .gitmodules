@@ -19,3 +19,6 @@
 [submodule "pvaClient"]
 	path = pvaClient
 	url = https://github.com/epics-base/pvaClientCPP.git
+[submodule "masarService"]
+	path = masarService
+	url = https://github.com/epics-base/masarService.git

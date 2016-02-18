@@ -21,3 +21,7 @@ PVA_API_VERSION = 450
 
 # The version number of the pvAccess RPC API
 PVA_RPC_API_VERSION = 440
+
+
+PYTHON_BASE=/usr
+PYTHON=python2.7
