@@ -14,35 +14,60 @@ make -c pvaSrv
 make -C pva2pva
 ```
 
+Host setup for testing
+
+```shell
+tunctl -t tap0
+tunctl -t tap1
+ifconfig tap0 10.5.1.1/24 up
+ifconfig tap1 10.5.2.1/24 up
+```
+
+In the following demo the gateway server side (GWS) listens on 10.5.1.1/24
+while the gateway client side (GWC) searches on 10.5.2.1/24.
+
 To run the demo open three shells in parallel.
 
 One
 
 ```shell
-./pvaSrv/bin/linux-x86/softIocPVA count.cmd
+cd pvaSrv
+cat << EOF > test.db
+record(calc, "$(N)") {
+  field(SCAN, "1 second")
+  field(INPA, "$(N) NPP")
+  field(CALC, "A+1")
+}
+EOF
+cat << EOF > test.cmd
+epicsEnvSet("EPICS_PVAS_INTF_ADDR_LIST","10.5.2.1")
+epicsEnvSet("EPICS_PVA_ADDR_LIST", "10.5.2.255")
+epicsEnvSet("EPICS_PVA_AUTO_ADDR_LIST","NO")
+dbLoadRecords("test.db", "N=cnt:a")
+iocInit()
+startPVAServer
+EOF
+./bin/linux-x86/softIocPVA test.cmd
 ```
 
 Two
 
 ```shell
-./pva2pva/bin/linux-x86/p2p rungw.cmd
+cd pva2pva
+cat << EOF > test.cmd
+epicsEnvSet("EPICS_PVAS_INTF_ADDR_LIST","10.5.1.1")
+epicsEnvSet("EPICS_PVA_ADDR_LIST", "10.5.2.255")
+epicsEnvSet("EPICS_PVA_AUTO_ADDR_LIST","NO")
+gwstart()
+EOF
+./bin/linux-x86/p2p test.cmd
 ```
 
 Three
 
 ```shell
-./pvAccess/bin/linux-x86_64/pvget -m xcnt
-```
-
-In this demo the client 'pvget' connects to 'xcnt'
-which is served by the p2p proxy to the real channel
-'ycnt' provided by the softIoc.
-
-
-Depending on local firewall rules, it may be necessary to
-set the 'EPICS_PVA_ADDR_LIST' environment variable in
-all three shells.
-
-```shell
-EPICS_PVA_ADDR_LIST=localhost
+cd pvAccess
+export EPICS_PVA_ADDR_LIST=10.5.1.1
+export EPICS_PVA_AUTO_ADDR_LIST=NO
+./bin/linux-x86_64/pvget -m cnt:a
 ```
