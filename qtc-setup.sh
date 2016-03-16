@@ -11,7 +11,7 @@ die() {
 
 # Find all directories containing headers
 findinc() {
-  git ls-files|grep '\.h$'| xargs -l1 dirname|sort -u
+  git ls-files|egrep '\.h$|\.cpp$'| xargs -l1 dirname|sort -u
 }
 
 [ -f ./RELEASE.local ] || die "Execute from the wrapper repo top"
@@ -43,28 +43,6 @@ EOF
 
     cat "$repo/$repo.includes" >> ".git/modules/$repo/info/exclude"
   fi
-done
-
-# special handling for *.includes
-# not so simple for pv* as most headers are included as "pv/*.h"
-# but don't appear in a pv/ sub-dir in the source tree :(
-
-for repo in pvData pvAccess
-do
-  for dir in `cat "$repo/$repo.includes"`
-  do
-    # don't overwrite if exists and not a symlink
-    [ -e "$repo/$dir/pv" -a ! -h "$repo/$dir/pv" ] && continue
-
-    # An ugly hack, in each directory containing headers,
-    # create a symlink 'pv' pointing to '.'.  So './pv/foo' points to './foo'
-    rm -f "$repo/$dir/pv"
-    ln -s . "$repo/$dir/pv"
-
-    cat << EOF >> "$repo/$repo.includes"
-$dir/pv
-EOF
-  done
 done
 
 # merge .includes for dependent packages
