@@ -1,3 +1,0 @@
-EPICS_BASE=$(TOP)/../epics-base
-PVDATA=$(TOP)/../pvData
-PVACCESS=$(TOP)/../pvAccess

@@ -16,3 +16,12 @@
 [submodule "pva2pva"]
 	path = pva2pva
 	url = https://github.com/mdavidsaver/pva2pva.git
+[submodule "pvaPy"]
+	path = pvaPy
+	url = https://github.com/mdavidsaver/pvaPy.git
+[submodule "normativeTypes"]
+	path = normativeTypes
+	url = https://github.com/epics-base/normativeTypesCPP.git
+[submodule "pvaClient"]
+	path = pvaClient
+	url = https://github.com/epics-base/pvaClientCPP.git
