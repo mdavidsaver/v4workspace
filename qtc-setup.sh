@@ -18,7 +18,7 @@ findinc() {
 
 ROOT="$PWD"
 
-for repo in epics-base pvData pvAccess pvaSrv
+for repo in epics-base pvData pvAccess pvaSrv normativeTypes pvaClient
 do
   [ -d "$repo" ] || continue
 
@@ -65,3 +65,5 @@ mergeme() {
 mergeme pvData epics-base
 mergeme pvAccess pvData epics-base
 mergeme pvaSrv pvAccess pvData epics-base
+mergeme normativeTypes pvAccess pvData epics-base
+mergeme pvaClient normativeTypes pvAccess pvData epics-base
