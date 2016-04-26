@@ -3,7 +3,8 @@
 #PVA_PY_LDFLAGS += -L$(BOOST_DIR)/lib64
 
 # The Boost python library to link with (-mt if available)
-PVA_PY_SYS_LIBS += boost_python-py34
+PVA_PY_SYS_LIBS += boost_python-py27
+#PVA_PY_SYS_LIBS += boost_python-py34
 
 # Python install prefix and version
 PYTHON_DIR=/usr
@@ -24,4 +25,4 @@ PVA_RPC_API_VERSION = 440
 
 
 PYTHON_BASE=/usr
-PYTHON=python2.7
+PYTHON=python$(PYTHON_VERSION)
