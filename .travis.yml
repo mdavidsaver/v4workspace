@@ -1,0 +1,12 @@
+sudo: false
+language: c
+addons:
+  apt:
+    packages:
+    - libreadline6-dev
+    - libncurses5-dev
+    - perl
+    - libboost-python-dev
+install:
+  - make -j2 
+script: make -C pva2pva runtests

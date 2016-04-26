@@ -22,3 +22,6 @@
 [submodule "masarService"]
 	path = masarService
 	url = https://github.com/epics-base/masarService.git
+[submodule "pva2pva"]
+	path = pva2pva
+	url = https://github.com/mdavidsaver/pva2pva.git

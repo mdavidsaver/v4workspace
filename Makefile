@@ -9,6 +9,7 @@ real-%: RELEASE.local
 	$(MAKE) -C normativeTypes $*
 	$(MAKE) -C pvaClient $*
 	$(MAKE) -C pvaPy $*
+	$(MAKE) -C pva2pva $*
 
 clean:
 	rm -f RELEASE.local
