@@ -9,7 +9,7 @@
 	url = https://github.com/epics-base/pvDataCPP.git
 [submodule "pvaSrv"]
 	path = pvaSrv
-	url = https://github.com/epics-base/pvaSrv
+	url = https://github.com/mdavidsaver/pvaSrv.git
 [submodule "pvaPy"]
 	path = pvaPy
 	url = https://github.com/mdavidsaver/pvaPy.git
