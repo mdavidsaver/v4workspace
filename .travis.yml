@@ -9,4 +9,4 @@ addons:
     - libboost-python-dev
 install:
   - make -j2 
-script: make -C pva2pva runtests
+script: make real-runtests
