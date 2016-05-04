@@ -1,14 +1,20 @@
 all: real-all
-distclean: real-distclean
+distclean: base-distclean
+
+real-all: base-all
+base-distclean: real-distclean
 
 real-%: RELEASE.local
-	$(MAKE) -C epics-base $*
 	$(MAKE) -C pvData $*
 	$(MAKE) -C pvAccess $*
+	$(MAKE) -C pva2pva $*
 	$(MAKE) -C pvaSrv $*
 	$(MAKE) -C normativeTypes $*
 	$(MAKE) -C pvaClient $*
 	$(MAKE) -C pvaPy $*
+
+base-%: RELEASE.local
+	$(MAKE) -C epics-base $*
 
 clean:
 	rm -f RELEASE.local
