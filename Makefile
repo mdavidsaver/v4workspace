@@ -1,5 +1,16 @@
 all: real-all
-distclean: real-distclean
+
+distclean: RELEASE.local
+	$(MAKE) -C pvData $@
+	$(MAKE) -C pvAccess $@
+	$(MAKE) -C normativeTypes $@
+	$(MAKE) -C masarService $@
+	$(MAKE) -C pvaSrv $@
+	$(MAKE) -C pvaClient $@
+	$(MAKE) -C pvaPy $@
+	$(MAKE) -C pva2pva $@
+	# must be last as this removes some configure/*
+	$(MAKE) -C epics-base $@
 
 real-%: RELEASE.local
 	$(MAKE) -C epics-base $*
@@ -7,6 +18,7 @@ real-%: RELEASE.local
 	$(MAKE) -C pvAccess $*
 	$(MAKE) -C pvaSrv $*
 	$(MAKE) -C normativeTypes $*
+	$(MAKE) -C masarService $*
 	$(MAKE) -C pvaClient $*
 	$(MAKE) -C pvaPy $*
 	$(MAKE) -C pva2pva $*
@@ -18,4 +30,4 @@ RELEASE.local: RELEASE.local.in
 	echo "THE_ROOT_DIR=$$PWD" > $@
 	cat $< >> $@
 
-.PHONY: all clean
+.PHONY: all clean distclean
